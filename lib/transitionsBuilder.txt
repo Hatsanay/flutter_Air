@@ -1,0 +1,46 @@
+
+
+Retrun const Center(child: Text('My PageRoute'));
+
+
+
+
+transitionsBuilder: (context, animation, secondaryAnimation, child) {
+  const begin = Offset(0.0, 1.0);
+  const end = Offset.zero;
+  final tween = Tween(begin: begin, end: end);
+  final offsetAnimation = animation.drive(tween);
+  return child;
+},
+
+
+
+
+
+transitionsBuilder:
+    (___, Animation<double> animation, ____, Widget child) {
+  return FadeTransition(
+    opacity: animation,
+    child: RotationTransition(
+      turns: Tween<double>(begin: 0.5, end: 1.0)
+          .animate(animation),
+      child: child,
+    ),
+  );
+},
+
+
+
+
+transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      const begin = Offset(0.0, 1.0);
+      const end = Offset.zero;
+      const curve = Curves.ease;
+
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+      return SlideTransition(
+        position: animation.drive(tween),
+        child: child,
+      );
+    },
