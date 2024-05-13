@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../constans.dart';
+import '../Page/HistoryPage.dart';
 import '../Page/HomePage.dart';
+import '../Page/ProfilePage.dart';
 
 class Menubar extends StatefulWidget {
   const Menubar({super.key});
@@ -17,18 +20,8 @@ class _MenubarState extends State<Menubar> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     HomePage(),
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Businessss',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
+    historyPage(),
+    ProfilePage(),
   ];
 
   void _onItemTapped(int index) {
@@ -54,12 +47,12 @@ class _MenubarState extends State<Menubar> {
                     pageBuilder: (BuildContext context, _, __) {
                       return Scaffold(
                         appBar: AppBar(
-                          title: const Text('แจ้งเตือน'),
+                          title: Text('notification'.tr),
                         ),
-                        body: const Center(
+                        body: Center(
                           child: Text(
-                            'ไม่มีการแจ้งเตือน',
-                            style: TextStyle(fontSize: 24),
+                            'noNotifications'.tr,
+                            style: const TextStyle(fontSize: 24),
                           ),
                         ),
                       );
@@ -87,18 +80,18 @@ class _MenubarState extends State<Menubar> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+            icon: const Icon(Icons.home),
+            label: 'home'.tr,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
+            icon: const Icon(Icons.history),
+            label: 'history'.tr,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
+            icon: const Icon(Icons.person),
+            label: 'profile'.tr,
           ),
         ],
         currentIndex: _selectedIndex,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class historyPage extends StatelessWidget {
+  const historyPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +10,9 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            Text('home'.tr),
+            Text(
+              'history'.tr,
+            ),
           ],
         ),
       ),

@@ -44,3 +44,6 @@ transitionsBuilder: (context, animation, secondaryAnimation, child) {
         child: child,
       );
     },
+
+
+      debugShowCheckedModeBanner: false,
